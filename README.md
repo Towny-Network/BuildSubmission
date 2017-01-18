@@ -34,7 +34,7 @@ You can see all releases [here](https://github.com/freddedotme/BuildSubmission/r
     - '{rank1} promote {player}'
     - '{rank2} promote {player}'
     
-{player} will use the player's username.
+**{player}** will use the player's username.
 
 #### Bugs and errors
 
