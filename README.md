@@ -2,6 +2,10 @@
 
 Build management plugin for Minecraft. Ranks with customized commands for each promotion.
 
+#### Download
+
+You can see all releases [here](https://github.com/freddedotme/BuildSubmission/releases).
+
 #### Commands
 
     /bs submit - Submit a build for review
@@ -13,9 +17,10 @@ Build management plugin for Minecraft. Ranks with customized commands for each p
     /bs deny <player> - Deny a build
     /bs reset <player> - Reset a player's rank
 
-#### Download
+#### Permissions
 
-You can see all releases [here](https://github.com/freddedotme/BuildSubmission/releases).
+    bs.user - submit, cancel
+    bs.admin - list, review, approve, deny, reset
 
 #### chat.yml
 
