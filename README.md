@@ -20,7 +20,7 @@ You can see all releases [here](https://github.com/freddedotme/BuildSubmission/r
 #### Permissions
 
     bs.user - submit, cancel
-    bs.admin - list, review, approve, deny, reset
+    bs.admin - list, review, rank, approve, deny, reset
 
 #### chat.yml
 
