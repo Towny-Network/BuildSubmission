@@ -4,7 +4,7 @@ Build management plugin for Minecraft. Ranks with customized commands for each p
 
 #### Download
 
-You can see all releases [here](https://github.com/freddedotme/BuildSubmission/releases).
+You can find all releases [here](https://github.com/freddedotme/BuildSubmission/releases).
 
 #### Commands
 
