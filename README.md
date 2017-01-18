@@ -17,6 +17,23 @@ Build management plugin for Minecraft. Ranks with customized commands for each p
 
 You can see all releases [here](https://github.com/freddedotme/BuildSubmission/releases).
 
+#### chat.yml
+
+    SUBMITTED: '&eBuild submitted.'
+    APPROVED: '&aCongrats, your build was approved!'
+    DENIED: '&cSorry, your build got denied.'
+    INVALID: '&cInvalid argument or command.'
+    CANCEL: '&eYour submission has been cancelled.'
+    
+#### commands.yml
+
+    ONLINE:
+    - '{rank1} tell {player} YAY'
+    - '{rank2} tell {player} WOO'
+    OFFLINE:
+    - '{rank1} promote {player}'
+    - '{rank2} promote {player}'
+
 #### Bugs and errors
 
-Please use the issue tracker if you need help.
+Please use the [issue tracker](https://github.com/freddedotme/BuildSubmission/issues) if you need help.
