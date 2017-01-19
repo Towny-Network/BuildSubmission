@@ -44,7 +44,7 @@ class Events implements Listener {
 
         if (optional.isPresent()) {
             Builder builder = optional.get();
-            if (rank > builder.getRank()) builder.setRank(rank);
+            if (rank > 0) builder.setRank(rank);
         }
     }
 
@@ -53,8 +53,10 @@ class Events implements Listener {
 
         for (PermissionAttachmentInfo pai : player.getEffectivePermissions()) {
             String permission = pai.getPermission();
-            if (permission.startsWith("bs.rank") && permission.length() > 7)
-                rank = Integer.valueOf(permission.substring(7));
+            if (permission.startsWith("bs.rank") && permission.length() > 7) {
+                int temp = Integer.valueOf(permission.substring(7));
+                if (temp > rank) rank = temp;
+            }
         }
 
         return rank;
