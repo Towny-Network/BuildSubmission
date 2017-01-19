@@ -7,6 +7,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.permissions.PermissionAttachmentInfo;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 class Events implements Listener {
@@ -24,17 +25,38 @@ class Events implements Listener {
         UUID uuid = player.getUniqueId();
         boolean isNew = !builders.stream().filter(p -> p.getUuid().equals(uuid)).findFirst().isPresent();
 
-        if (isNew) addBuilder(player);
+        if (isNew) {
+            addBuilder(player);
+        } else {
+            checkBuilder(player);
+        }
     }
 
     private void addBuilder(Player player) {
+        int rank = getRankFromPermission(player);
+        builders.add(new Builder(settings.BUILDERS, player.getUniqueId(), rank, null));
+    }
+
+    private void checkBuilder(Player player) {
+        int rank = getRankFromPermission(player);
+        UUID uuid = player.getUniqueId();
+        Optional<Builder> optional = builders.stream().filter(p -> p.getUuid().equals(uuid)).findFirst();
+
+        if (optional.isPresent()) {
+            Builder builder = optional.get();
+            if (rank > builder.getRank()) builder.setRank(rank);
+        }
+    }
+
+    private int getRankFromPermission(Player player) {
         int rank = 0;
 
         for (PermissionAttachmentInfo pai : player.getEffectivePermissions()) {
             String permission = pai.getPermission();
-            if (permission.startsWith("bs.rank")) rank = Integer.valueOf(permission.substring(6));
+            if (permission.startsWith("bs.rank") && permission.length() > 7)
+                rank = Integer.valueOf(permission.substring(6));
         }
 
-        builders.add(new Builder(settings.BUILDERS, player.getUniqueId(), rank, null));
+        return rank;
     }
 }
