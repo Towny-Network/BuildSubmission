@@ -1,7 +1,0 @@
-name: BuildSubmission
-version: 4.0
-main: me.fredde.BuildSubmission.Main
-commands:
-  bs:
-    description: "BuildSubmission commands."
-    usage: "/bs submit | cancel | list | review | rank | approve | deny | reset"
