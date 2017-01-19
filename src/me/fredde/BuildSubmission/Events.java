@@ -44,7 +44,11 @@ class Events implements Listener {
 
         if (optional.isPresent()) {
             Builder builder = optional.get();
-            if (rank > 0) builder.setRank(rank);
+            if (rank == 0 && player.hasPermission("bs.rank0")) {
+                builder.setRank(0);
+            } else if (rank > 0) {
+                builder.setRank(rank);
+            }
         }
     }
 
