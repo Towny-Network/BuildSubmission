@@ -54,7 +54,7 @@ class Events implements Listener {
         for (PermissionAttachmentInfo pai : player.getEffectivePermissions()) {
             String permission = pai.getPermission();
             if (permission.startsWith("bs.rank") && permission.length() > 7)
-                rank = Integer.valueOf(permission.substring(6));
+                rank = Integer.valueOf(permission.substring(7));
         }
 
         return rank;
