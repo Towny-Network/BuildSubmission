@@ -16,14 +16,8 @@ class Builder {
         this.rank = rank;
         this.location = location;
 
-        manager.write(uuid.toString() + ".rank", rank);
-
-        if (location != null) {
-            manager.write(uuid.toString() + ".world.name", location.getWorld().getName());
-            manager.write(uuid.toString() + ".world.x", location.getX());
-            manager.write(uuid.toString() + ".world.y", location.getY());
-            manager.write(uuid.toString() + ".world.z", location.getZ());
-        }
+        writeRank(rank);
+        writeLocation(location);
     }
 
     UUID getUuid() {
@@ -36,7 +30,7 @@ class Builder {
 
     void setRank(int rank) {
         this.rank = rank;
-        manager.write(uuid.toString() + ".rank", rank);
+        writeRank(rank);
     }
 
     Location getLocation() {
@@ -45,7 +39,14 @@ class Builder {
 
     void setLocation(Location location) {
         this.location = location;
+        writeLocation(location);
+    }
 
+    private void writeRank(int rank) {
+        manager.write(uuid.toString() + ".rank", rank);
+    }
+
+    private void writeLocation(Location location) {
         if (location != null) {
             manager.write(uuid.toString() + ".world.name", location.getWorld().getName());
             manager.write(uuid.toString() + ".world.x", location.getX());
