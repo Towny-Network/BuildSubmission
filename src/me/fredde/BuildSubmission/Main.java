@@ -13,19 +13,16 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        if (getServer().getOnlineMode()) {
-            Settings settings = new Settings();
-            fetchChat(settings);
-            fetchCommands(settings);
+        if (!getServer().getOnlineMode())
+            getLogger().info("You have offline-mode set to false. This could create issues with UUID's if not properly configured.");
+        Settings settings = new Settings();
+        fetchChat(settings);
+        fetchCommands(settings);
 
-            List<Builder> builders = fetchBuilders(settings);
+        List<Builder> builders = fetchBuilders(settings);
 
-            getServer().getPluginManager().registerEvents(new Events(settings, builders), this);
-            getCommand("bs").setExecutor(new Commands(this, settings, builders));
-        } else {
-            // No support if this check is removed.
-            quit("No support for cracked servers.");
-        }
+        getServer().getPluginManager().registerEvents(new Events(settings, builders), this);
+        getCommand("bs").setExecutor(new Commands(this, settings, builders));
     }
 
     private void fetchChat(Settings settings) {
