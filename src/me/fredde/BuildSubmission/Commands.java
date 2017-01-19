@@ -82,6 +82,8 @@ class Commands implements CommandExecutor {
                     builder.setLocation(null);
                     String rank = "{rank" + builder.getRank() + "}";
 
+                    // TODO: Combine the command loop below.
+
                     for (Object o : settings.ONLINE) {
                         String cmd = o.toString();
                         if (cmd.contains(rank)) {
