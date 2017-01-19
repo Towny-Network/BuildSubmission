@@ -25,6 +25,7 @@ You can find all releases [here](https://github.com/freddedotme/BuildSubmission/
 
     bs.user - submit, cancel
     bs.admin - list, review, rank, approve, deny, reset
+    bs.rankN - where N = number >= 0, will apply on restart/login
 
 #### chat.yml
 
@@ -44,7 +45,7 @@ You can find all releases [here](https://github.com/freddedotme/BuildSubmission/
     - '{rank2} promote {player}'
     
 **{player}** will use the player's username.  
-**{rankN}** where N = rank. Needs to be written as the examples above. Avoid using "/" before the command.
+**{rankN}** where N = number >= 0. Needs to be written as the examples above. Avoid using "/" before the command.
 
 #### Bugs and errors
 
