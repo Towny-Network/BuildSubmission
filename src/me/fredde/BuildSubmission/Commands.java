@@ -43,6 +43,17 @@ class Commands implements CommandExecutor {
         // End if no arguments provided.
         if (strings.length == 0) return error(player, "No arguments.");
 
+        // End if no valid arguments.
+        if (!strings[0].equalsIgnoreCase("submit")
+                && !strings[0].equalsIgnoreCase("cancel")
+                && !strings[0].equalsIgnoreCase("list")
+                && !strings[0].equalsIgnoreCase("review")
+                && !strings[0].equalsIgnoreCase("rank")
+                && !strings[0].equalsIgnoreCase("approve")
+                && !strings[0].equalsIgnoreCase("deny")
+                && !strings[0].equalsIgnoreCase("reset"))
+            return error(player, "Invalid argument");
+
         if (player.hasPermission("bs.user")) {
 
             // End if entry not found in builders.yml.
@@ -77,12 +88,16 @@ class Commands implements CommandExecutor {
                 // View all submissions.
                 if (getSubmissions().size() == 0) return neutral(player, NONE_PENDING);
 
+                player.sendMessage(settings.cc("&6===="));
+
                 for (Builder builder : getSubmissions()) {
                     String name = server.getOfflinePlayer(builder.getUuid()).getName();
                     player.sendMessage(settings.cc("&e" + name));
                     player.sendMessage(settings.cc("&a/bs review " + name));
-                    player.sendMessage(settings.cc("&6--"));
+                    player.sendMessage(settings.cc("&5*"));
                 }
+
+                player.sendMessage(settings.cc("&6===="));
 
             } else if (strings.length == 2) {
 

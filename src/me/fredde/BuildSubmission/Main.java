@@ -13,6 +13,7 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
         // If you change between offline and online mode (without Bungee forward) and the saved path is based on your
         // UUID there could possible be duplicates.
         if (!getServer().getOnlineMode())
@@ -28,6 +29,7 @@ public class Main extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new Events(settings, builders), this);
         getCommand("bs").setExecutor(new Commands(this, settings, builders));
+
     }
 
     private void fetchChat(Settings settings) {
@@ -97,8 +99,8 @@ public class Main extends JavaPlugin {
         path.stream().filter(p -> !(manager.read(p) instanceof List)).forEach(p -> quit(p + " is invalid."));
 
         settings.COMMANDS = manager;
-        settings.ONLINE = (ArrayList) manager.read(path.get(0));
-        settings.OFFLINE = (ArrayList) manager.read(path.get(1));
+        settings.ONLINE = (List) manager.read(path.get(0));
+        settings.OFFLINE = (List) manager.read(path.get(1));
     }
 
     private List<Builder> fetchBuilders(Settings settings) {

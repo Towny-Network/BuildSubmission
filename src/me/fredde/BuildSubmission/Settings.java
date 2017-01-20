@@ -2,7 +2,7 @@ package me.fredde.BuildSubmission;
 
 import org.bukkit.ChatColor;
 
-import java.util.ArrayList;
+import java.util.List;
 
 class Settings {
     String SUBMITTED;
@@ -11,8 +11,8 @@ class Settings {
     String INVALID;
     String CANCEL;
 
-    ArrayList ONLINE;
-    ArrayList OFFLINE;
+    List ONLINE;
+    List OFFLINE;
 
     Manager CHAT;
     Manager COMMANDS;
