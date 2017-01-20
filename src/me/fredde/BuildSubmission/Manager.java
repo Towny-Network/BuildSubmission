@@ -18,7 +18,7 @@ class Manager {
     }
 
     private void init() {
-        //TODO: Avoid static path below
+        // TODO: Avoid static path below
         String root = "plugins/BuildSubmission";
         file = new File(root, path);
 
