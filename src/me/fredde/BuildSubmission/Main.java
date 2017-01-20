@@ -13,12 +13,17 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        // If you change between offline and online mode (without Bungee forward) and the saved path is based on your
+        // UUID there could possible be duplicates.
         if (!getServer().getOnlineMode())
             getLogger().info("You have offline-mode set to false. This could create issues with UUID's if not properly configured.");
+
+        // Initialize and fetch from our files.
         Settings settings = new Settings();
         fetchChat(settings);
         fetchCommands(settings);
 
+        // Fetch from builders.yml.
         List<Builder> builders = fetchBuilders(settings);
 
         getServer().getPluginManager().registerEvents(new Events(settings, builders), this);

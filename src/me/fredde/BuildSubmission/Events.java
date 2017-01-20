@@ -57,6 +57,8 @@ class Events implements Listener {
 
         for (PermissionAttachmentInfo pai : player.getEffectivePermissions()) {
             String permission = pai.getPermission();
+
+            // TODO: Check if temp is instance of Integer.
             if (permission.startsWith("bs.rank") && permission.length() > 7) {
                 int temp = Integer.valueOf(permission.substring(7));
                 if (temp > rank) rank = temp;

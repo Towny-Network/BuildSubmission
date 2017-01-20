@@ -16,6 +16,7 @@ class Builder {
         this.rank = rank;
         this.location = location;
 
+        // Write to builders.yml.
         writeRank(rank);
         writeLocation(location);
     }
