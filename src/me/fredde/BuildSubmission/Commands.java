@@ -93,7 +93,7 @@ class Commands implements CommandExecutor {
                 for (Builder builder : getSubmissions()) {
                     String name = server.getOfflinePlayer(builder.getUuid()).getName();
                     player.sendMessage(settings.cc("&e" + name));
-                    server.dispatchCommand(server.getConsoleSender(), "tellraw " + name + " [\"\",{\"text\":\"Click to review\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/bs review " + name + "\"}}]");
+                    server.dispatchCommand(server.getConsoleSender(), "tellraw " + player.getName() + " [\"\",{\"text\":\"Click to review\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/bs review " + name + "\"}}]");
                     player.sendMessage(settings.cc("&5*"));
                 }
 
