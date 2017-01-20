@@ -93,7 +93,7 @@ class Commands implements CommandExecutor {
                 for (Builder builder : getSubmissions()) {
                     String name = server.getOfflinePlayer(builder.getUuid()).getName();
                     player.sendMessage(settings.cc("&e" + name));
-                    player.sendMessage(settings.cc("&a/bs review " + name));
+                    server.dispatchCommand(server.getConsoleSender(), "tellraw " + name + " [\"\",{\"text\":\"Click to review\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/bs review " + name + "\"}}]");
                     player.sendMessage(settings.cc("&5*"));
                 }
 
@@ -116,7 +116,7 @@ class Commands implements CommandExecutor {
                     if (builder.getLocation() == null) return neutral(player, NOT_UNDER_REVIEW.replace("{name}", name));
 
                     player.teleport(builder.getLocation());
-                    player.sendMessage(settings.cc("&eTeleported to " + name + "."));
+                    player.sendMessage(settings.cc("&eTeleported to " + name + "'s build."));
 
                 } else if (strings[0].equalsIgnoreCase("rank")) {
 
