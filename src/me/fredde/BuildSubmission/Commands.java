@@ -27,7 +27,7 @@ class Commands implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (!(commandSender instanceof Player)) return false;
         Player player = (Player) commandSender;
-        if (!player.hasPermission("bs.user") || !player.hasPermission("bs.admin"))
+        if (!player.hasPermission("bs.user") && !player.hasPermission("bs.admin"))
             return error(player, "Lacking permissions.");
         if (strings.length == 0) return error(player, "No arguments.");
 
