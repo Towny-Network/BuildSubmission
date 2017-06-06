@@ -6,9 +6,6 @@ Build management plugin for Minecraft. Ranks with customized commands for each p
 
 You can find all releases [here](https://github.com/freddedotme/BuildSubmission/releases).
 
-[![Code Climate](https://codeclimate.com/github/freddedotme/BuildSubmission/badges/gpa.svg)](https://codeclimate.com/github/freddedotme/BuildSubmission)
-[![Issue Count](https://codeclimate.com/github/freddedotme/BuildSubmission/badges/issue_count.svg)](https://codeclimate.com/github/freddedotme/BuildSubmission)
-
 #### Commands
 
     /bs submit - Submit a build for review
