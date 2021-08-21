@@ -1,6 +1,7 @@
 name: BuildSubmission
 version: 4.2
 main: me.fredde.BuildSubmission.Main
+api-version: 1.17
 commands:
   bs:
     description: "BuildSubmission commands."

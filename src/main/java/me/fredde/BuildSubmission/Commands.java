@@ -1,5 +1,8 @@
 package me.fredde.BuildSubmission;
 
+import com.plotsquared.core.plot.Plot;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
@@ -61,13 +64,27 @@ class Commands implements CommandExecutor {
             if (builder == null) return error(player, "Internal errors, contact an admin.");
 
             if (strings[0].equalsIgnoreCase("submit")) {
-
                 // Submit a build.
                 if (builder.getLocation() != null) return neutral(player, ALREADY_SUBMITTED);
 
-                builder.setLocation(player.getLocation());
-                broadcast("&e" + player.getName() + " submitted a build.", "bs.admin");
-                player.sendMessage(settings.SUBMITTED);
+                Location bukkitLocation = player.getLocation();
+                int x = bukkitLocation.getBlockX();
+                int y = bukkitLocation.getBlockY();
+                int z = bukkitLocation.getBlockZ();
+                String world = bukkitLocation.getWorld().getName();
+
+                com.plotsquared.core.location.Location p2Location = com.plotsquared.core.location.Location.at(world, x,y,z);
+                Plot submittedPlot = Plot.getPlot(p2Location);
+
+                assert submittedPlot != null;
+                if (submittedPlot.isOwner(player.getUniqueId())) {
+                    builder.setLocation(player.getLocation());
+                    broadcast("&e" + player.getName() + " submitted a build.", "bs.admin");
+                    player.sendMessage(settings.SUBMITTED);
+                } else {
+                    player.sendMessage(ChatColor.RED + "You cannot submit a plot that you don't own.");
+                }
+
 
             } else if (strings[0].equalsIgnoreCase("cancel")) {
 

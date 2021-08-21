@@ -65,6 +65,16 @@
             <id>skullcreator-repo</id>
             <url>https://github.com/deanveloper/SkullCreator/raw/mvn-repo/</url>
         </repository>
+        <!-- WorldEdit -->
+        <repository>
+            <id>enginehub</id>
+            <url>https://maven.enginehub.org/repo/</url>
+        </repository>
+        <!-- PlotSquared -->
+        <repository>
+            <id>IntellectualSites</id>
+            <url>https://mvn.intellectualsites.com/content/groups/public/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -81,6 +91,13 @@
             <artifactId>spigot</artifactId>
             <version>1.17.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- PlotSquared Core API -->
+        <dependency>
+        <groupId>com.plotsquared</groupId>
+        <artifactId>PlotSquared-Core</artifactId>
+        <version>6.0.8-SNAPSHOT</version>
+        <scope>provided</scope>
         </dependency>
     </dependencies>
     
